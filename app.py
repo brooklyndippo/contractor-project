@@ -2,12 +2,6 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    """Return homepage."""
-    return render_template('home.html', msg='Contractor Project!')
-
-
 
 # Mock donations
 donations = [
@@ -17,7 +11,7 @@ donations = [
 
 # READ - http verb GET - see donations and forms for changes
     #INDEX - show all of the donations
-@app.route('/donations')
+@app.route('/')
 def donations_index():
     '''Show all donations.'''
     return render_template('donations_index.html', donations=donations)
