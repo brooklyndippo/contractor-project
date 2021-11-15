@@ -1,0 +1,28 @@
+<!-- templates/donations_new.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/donations'>
+    <fieldset>
+    <legend>New Donation</legend>
+    <!-- TITLE -->
+    <p>
+        <label for='organization'>Organization</label><br>
+        <input type='text' name='organization'/>
+    </p>
+    <p>
+        <label for='amount_usd'>Amount</label><br>
+        <input type='number' value='100' name='amount_usd' />
+    </p>
+    <p>
+        <label for='note'>Donation Note</label><br>
+        <input type='text' name='note' />
+    </p>
+    </fieldset>
+
+    <!-- BUTTON -->
+    <p>
+        <button type='submit'>Save Donation</button>
+    </p>
+</form>
+{% endblock %}

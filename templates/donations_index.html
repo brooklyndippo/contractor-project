@@ -3,9 +3,14 @@
 >
 {% block content %}
     <h1>Donations</h1>
+
+    <!-- New link here -->
+    <a href='/donations/new'>New Donation</a>
+
+
     {% for donation in donations %}
         <h2>{{ donation.organization }}</h2>
         <h3>${{ donation.amount_usd }}</h3>
-        <p>Donated by: {{ donation.donor }}</p>
+        <p>Donation note: {{ donation.note }}</p>
     {% endfor %}
 {% endblock %}
