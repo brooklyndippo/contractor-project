@@ -1,0 +1,12 @@
+<!-- templates/donations_show.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<a href='/'>Back</a>
+<h1>{{ donation.organization }}</h1>
+<h2>{{ donation.amount_usd }}</h2>
+<p>{{ donation.note }}</p>
+
+<p><a href='/donations/{{ donation._id }}/edit'>Edit</a></p>
+
+{% endblock %}

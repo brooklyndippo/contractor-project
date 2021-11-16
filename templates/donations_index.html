@@ -1,6 +1,6 @@
 <!-- templates/donations_index.html -->
 {% extends 'base.html' %}
->
+
 {% block content %}
     <h1>Donations</h1>
 
@@ -9,8 +9,9 @@
 
 
     {% for donation in donations %}
-        <h2>{{ donation.organization }}</h2>
+        <h2><a href='/donations/{{ donation._id }}'>{{ donation.organization }}</a></h2>
         <h3>${{ donation.amount_usd }}</h3>
         <p>Donation note: {{ donation.note }}</p>
     {% endfor %}
+
 {% endblock %}
