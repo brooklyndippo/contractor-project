@@ -81,6 +81,13 @@ def donations_update(donation_id):
     # take us back to the donation's show page
     return redirect(url_for('donations_show', donation_id=donation_id))
 
+
+@app.route('/donations/<donation_id>/delete', methods=['POST'])
+def donations_delete(donation_id):
+    """Delete one donation."""
+    donations.delete_one({'_id': ObjectId(donation_id)})
+    return redirect(url_for('donations_index'))
+
 if __name__ == '__main__':
     app.run(debug=True)
 
