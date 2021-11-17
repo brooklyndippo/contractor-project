@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+import os
 
-client = MongoClient()
+uri = os.environ.get('MONGODB_URI')
+client = MongoClient(uri)
+db = client.get_default_database()
 db = client.Donations
 donations = db.donations
 
