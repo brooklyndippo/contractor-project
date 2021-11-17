@@ -22,6 +22,7 @@ def donations_index():
     '''Show all donations.'''
     return render_template('donations_index.html', donations=donations.find())
 
+
 # READ - http verb GET - see donations and forms for changes
     # NEW - form to create a new donation
 @app.route('/donations/new')
@@ -64,7 +65,7 @@ def donations_edit(donation_id):
 
 
 
-#UPDATE A Donation
+# UPDATE - http verb PUT PATCH - update a donation
 @app.route('/donations/<donation_id>', methods=['POST'])
 def donations_update(donation_id):
     """Submit an updated donation."""
@@ -81,7 +82,7 @@ def donations_update(donation_id):
     # take us back to the donation's show page
     return redirect(url_for('donations_show', donation_id=donation_id))
 
-
+# DESTROY - http verb DELETE - delete a donation
 @app.route('/donations/<donation_id>/delete', methods=['POST'])
 def donations_delete(donation_id):
     """Delete one donation."""
@@ -90,12 +91,3 @@ def donations_delete(donation_id):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-# Create an app that can track donations and impact for a user
-
-# READ - http verb GET - see donations and forms for changes
-
-    #EDIT - form to update an existing donation
-# UPDATE - http verb PUT PATCH - update a donation
-# DESTROY - http verb DELETE - delete a donation
