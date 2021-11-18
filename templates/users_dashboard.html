@@ -1,0 +1,19 @@
+<!-- templates/users_dashboard.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<a href='/admin'>Back</a>
+<h1>{{ user.firstName }}</h1>
+<h1>{{ user.lastName }}</h1>
+<h2>{{ user.impact }}</h2>
+<p>{{ user.income }}</p>
+
+<p><a href='/users/{{ user._id }}/edit'>Edit</a></p>
+
+
+<!-- Delete button -->
+<p><form method='POST' action='/users/{{ user._id }}/delete'>
+    <button type='submit'>Delete Account</button>
+</form></p>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+<!-- templates/partials/donations_form.html -->
+
+<fieldset>
+    <legend>{{ title }}</legend>
+    <!-- USER INFO -->
+    <p>
+        <label for='firstName'>First Name</label><br>
+        <input type='text' name='firstName' value='{{ user.firstName }}'/>
+    </p>
+    <p>
+        <label for='lastName'>Last Name</label><br>
+        <input type='text' name='lastName' value='{{ user.lastName }}'/>
+    </p>
+    
+    <!-- INCOME -->
+
+    <p>
+        <label for='income'>Estimated Annual Income ($)</label><br>
+        <input type='number' name='income' value='{{ user.income }}'/>
+    </p>
+
+    <!-- IMPACT GOAL  -->
+    <p>
+        <label for='impact'>What level of impact do you want to have?</label><br>
+        <select name='impact' value='{{ user.impact }}'>
+            <option value='25'>Oprah Status - 25%</option>
+            <option value='20' selected>Global Giver - 20%</option>
+            <option value='15'>Life Changer - 15%</option>
+            <option value='10'>Community Hero - 10%</option>
+            <option value='5'>Sharing Good Fortune - 5%</option>
+        </select>
+    </p>
+
+</fieldset>
+
+<!-- BUTTON -->
+<p>
+    <button type='submit'>Save User Settings</button>
+</p>
