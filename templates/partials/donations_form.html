@@ -1,5 +1,6 @@
 <!-- templates/partials/donations_form.html -->
-<form>
+<form action='/users/donations' method='POST'>
+<input type='hidden' value='{{ user._id }}' name='user_id'>
 <fieldset>
     <legend>{{ title }}</legend>
     <!-- ORG -->
@@ -10,7 +11,7 @@
     
     <!-- CAUSE -->
 
-    <select>
+    <select name='cause'>
         <option>Animal Welfare</option>
         <option>Arts & Culture</option>
         <option>Education</option>

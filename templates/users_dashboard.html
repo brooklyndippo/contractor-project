@@ -3,22 +3,43 @@
 
 {% block content %}
 <a href='/admin'>Back</a>
-<h1>Hello, {{ user.firstName }}!</h1>
-<h2>Your goal is to donate {{ user.impact }}% of your income to charity.</h2>
-<p>Your annual income: ${{ user.income }}</p>
+
+<!-- USER WELCOME -->
+<div id='welcome-block'>
+    <h1>Hello, {{ user.firstName }}!</h1>
+    <h2>Your goal is to donate {{ user.impact }}% of your income to charity.</h2>
+    <p>Your annual income: ${{ user.income }}</p>
+</div>
+
+<!-- TO-DO: IMPACT BLOCK -->
+<!-- List of the top areas of impact -->
 
 <!-- MAKE A DONATION -->
-<button><a href='/donations/new'>Donate</a></button>
+<div id='CTA'>
+    <h2>Donate!</h2>
+</div>
 
-{% include 'partials/donations_form.html' %}
+<!-- DONATION FORM -->
+<div id='donation-form'>
+    {% include 'partials/donations_form.html' %}
+</div>
 
-<p>User settings:</p>
+<!-- TO-DO: SEE PREVIOUS DONATIONS (NOT WORKING) -->
+<div id='all-donations'>
+    {% for donation in donations %}
+        {% include 'partials/donation.html' %}
+    {% endfor %}
+</div>
 
-<p><a href='/users/{{ user._id }}/edit'>Edit</a></p>
+<div id='settings'>
+    <p>User settings:</p>
 
-<!-- Delete button -->
-<p><form method='POST' action='/users/{{ user._id }}/delete'>
-    <button type='submit'>Delete Account</button>
-</form></p>
+    <p><a href='/users/{{ user._id }}/edit'>Edit</a></p>
+
+    <!-- Delete button -->
+    <p><form method='POST' action='/users/{{ user._id }}/delete'>
+        <button type='submit'>Delete Account</button>
+    </form></p>
+</div>
 
 {% endblock %}
