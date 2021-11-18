@@ -3,13 +3,18 @@
 
 {% block content %}
 <a href='/admin'>Back</a>
-<h1>{{ user.firstName }}</h1>
-<h1>{{ user.lastName }}</h1>
-<h2>{{ user.impact }}</h2>
-<p>{{ user.income }}</p>
+<h1>Hello, {{ user.firstName }}!</h1>
+<h2>Your goal is to donate {{ user.impact }}% of your income to charity.</h2>
+<p>Your annual income: ${{ user.income }}</p>
+
+<!-- MAKE A DONATION -->
+<button><a href='/donations/new'>Donate</a></button>
+
+{% include 'partials/donations_form.html' %}
+
+<p>User settings:</p>
 
 <p><a href='/users/{{ user._id }}/edit'>Edit</a></p>
-
 
 <!-- Delete button -->
 <p><form method='POST' action='/users/{{ user._id }}/delete'>

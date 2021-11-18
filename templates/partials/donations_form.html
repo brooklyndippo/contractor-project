@@ -1,11 +1,11 @@
 <!-- templates/partials/donations_form.html -->
-
+<form>
 <fieldset>
     <legend>{{ title }}</legend>
     <!-- ORG -->
     <p>
         <label for='organization'>Organization</label><br>
-        <input type='text' name='organization' value='{{ donation.organization }}'/>
+        <input type='text' name='organization'/>
     </p>
     
     <!-- CAUSE -->
@@ -27,12 +27,12 @@
     <!-- AMOUNT $ -->
     <p>
         <label for='amount_usd'>$</label><br>
-        <input type='number' name='amount_usd' value='{{ donation.amount_usd }}'/>
+        <input type='number' name='amount_usd' />
     </p>
     <!-- NOTE -->
     <p>
         <label for='note'>Donation Note</label><br>
-        <input type='text' name='note' value='{{ donation.note }}'/>
+        <input type='text' name='note' />
     </p>
 </fieldset>
 
@@ -40,3 +40,4 @@
 <p>
     <button type='submit'>Save Donation</button>
 </p>
+</form>
