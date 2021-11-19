@@ -4,14 +4,14 @@
 <fieldset>
     <legend>{{ title }}</legend>
     <!-- ORG -->
-    <p>
+    <div class='form-group mb-3'>
         <label for='organization'>Organization</label><br>
-        <input type='text' name='organization'/>
-    </p>
-    
+        <input type='text' name='organization' class="form-control" placeholder='Charity Name'/>
+    </div>  
     <!-- CAUSE -->
-
-    <select name='cause'>
+    <div class='form-group mb-3'>
+    <label for='cause'>Select a cause:</label>
+    <select name='cause' class="form-control">
         <option>Animal Welfare</option>
         <option>Arts & Culture</option>
         <option>Education</option>
@@ -24,21 +24,21 @@
         <option>Wildlife Conservation</option>
         <option>Youth & Families</option>
     </select>
-
+    </div>
     <!-- AMOUNT $ -->
-    <p>
-        <label for='amount_usd'>$</label><br>
-        <input type='number' name='amount_usd' />
-    </p>
+    <div class='form-group mb-3'>
+        <label for='amount_usd'>Donation Amount (USD)</label><br>
+        <input type='number' name='amount_usd' class="form-control" placeholder="$50"/>
+    </div>
     <!-- NOTE -->
-    <p>
+    <div class='form-group mb-3'>
         <label for='note'>Donation Note</label><br>
-        <input type='text' name='note' />
-    </p>
+        <input type='text' name='note' class="form-control"/>
+    </div>
 </fieldset>
 
 <!-- BUTTON -->
 <p>
-    <button type='submit'>Save Donation</button>
+    <button type='submit' class="btn btn-primary mb-2">Save Donation</button>
 </p>
 </form>

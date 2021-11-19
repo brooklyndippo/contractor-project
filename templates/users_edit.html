@@ -6,4 +6,9 @@
     <!-- Add this line instead of all the form code -->
     {% include 'partials/users_form.html' %}
 </form>
+    
+<!-- Delete button -->
+<p><form method='POST' action='/users/{{ user._id }}/delete'>
+    <button type='submit'>Delete Account</button>
+</form></p>
 {% endblock %}

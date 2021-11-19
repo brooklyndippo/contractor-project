@@ -59,7 +59,8 @@ def users_submit():
 # SHOW A SINGLE USER
 @app.route('/users/<user_id>')
 def users_show(user_id):
-    '''Show a single donation'''
+    '''Show a single user.'''
+    print(user_id)
     user = users.find_one({'_id': ObjectId(user_id)})
     user_donations = donations.find({'user_id': ObjectId(user_id)})
     print (user_donations)
@@ -100,8 +101,7 @@ def users_delete(user_id):
     return redirect(url_for('users_index'))
 
 
-# Add this header to distinguish DONATION routes from USER routes
-########## DONATION ROUTES ##########
+# ======== DONATION RESOURCE ======== DONATION RESOURCE ======== DONATION RESOURCE ======== 
 
 # CREATE A DONATION FOR A USER
 @app.route('/users/donations', methods=['POST'])
@@ -117,7 +117,8 @@ def donations_new():
     donations.insert_one(donation)
     print (donation['user_id'])
     print(donation['note'])
-    return redirect(url_for('users_show', user_id=request.form.get('user_id')))
+    user_id=request.form.get('user_id')
+    return redirect(url_for('users_show', user_id=user_id))
 
 # ======== DONATION RESOURCE ======== DONATION RESOURCE ======== DONATION RESOURCE ======== 
 

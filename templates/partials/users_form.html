@@ -3,37 +3,40 @@
 <fieldset>
     <legend>{{ title }}</legend>
     <!-- USER INFO -->
-    <p>
-        <label for='firstName'>First Name</label><br>
-        <input type='text' name='firstName' value='{{ user.firstName }}'/>
-    </p>
-    <p>
-        <label for='lastName'>Last Name</label><br>
-        <input type='text' name='lastName' value='{{ user.lastName }}'/>
-    </p>
+
+    <div class="form-floating mb-3">
+        <input type='text' name='firstName' class='form-control' id='firstName' value='{{ user.firstName }}'/>
+        <label for='firstName'>First Name</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type='text' name='lastName' class="form-control" id='lastName' value='{{ user.lastName }}'/>
+        <label for='lastName'>Last Name</label>
+      </div>
     
     <!-- INCOME -->
 
-    <p>
-        <label for='income'>Estimated Annual Income ($)</label><br>
-        <input type='number' name='income' value='{{ user.income }}'/>
-    </p>
+    <div class="form-floating mb-3">
+        <input type='number' name='income' class='form-control' id='income' value='{{ user.income }}'/>
+        <label for='income'>Estimated Annual Income ($)</label>
+    </div>
 
     <!-- IMPACT GOAL  -->
-    <p>
-        <label for='impact'>What level of impact do you want to have?</label><br>
-        <select name='impact' value='{{ user.impact }}'>
+    <div class='form-floating mb-3'>
+        
+        <select name='impact' value='{{ user.impact }}' class='form-control'>
             <option value='25'>Oprah Status - 25%</option>
             <option value='20' selected>Global Giver - 20%</option>
             <option value='15'>Life Changer - 15%</option>
             <option value='10'>Community Hero - 10%</option>
             <option value='5'>Sharing Good Fortune - 5%</option>
         </select>
-    </p>
+        <label for='impact'>What level of impact do you want to have?</label>
+    </div>
 
 </fieldset>
 
 <!-- BUTTON -->
 <p>
-    <button type='submit'>Save User Settings</button>
+    <button type='submit' class="btn btn-primary mb-2">Save User Settings</button>
 </p>
