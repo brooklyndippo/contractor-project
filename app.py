@@ -63,9 +63,7 @@ def users_show(user_id):
     print(user_id)
     user = users.find_one({'_id': ObjectId(user_id)})
     user_donations = donations.find({'user_id': ObjectId(user_id)})
-    print (user_donations)
     return render_template('users_dashboard.html', user=user, donations=user_donations)
-
 
 # EDIT A USERS SETTINGS (get a form)
 @app.route('/users/<user_id>/edit')
@@ -108,7 +106,7 @@ def users_delete(user_id):
 def donations_new():
     '''Submit a new donation.'''
     donation = {
-        'user_id': request.form.get('user_id'),
+        'user_id': ObjectId(request.form.get('user_id')),
         'organization': request.form.get('organization'),
         'cause': request.form.get('cause'),
         'amount_usd': request.form.get('amount_usd'),

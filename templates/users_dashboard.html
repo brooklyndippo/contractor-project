@@ -54,7 +54,6 @@
 <!-- TO-DO: SEE PREVIOUS DONATIONS (NOT WORKING) -->
 <div id='all-donations'>
     {% for donation in donations %}
-        <p>{{ donation.organization }}</p>
         {% include 'partials/donation.html' %}
     {% endfor %}
 </div>

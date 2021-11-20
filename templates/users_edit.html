@@ -1,7 +1,12 @@
 <!-- templates/users_edit.html -->
 {% extends 'base.html' %}
 
+{% block navbar %}
+{% endblock %}
+
 {% block content %}
+{% include 'partials/user_navbar.html' %}
+
 <form method='POST' action='/users/{{user._id}}'>
     <!-- Add this line instead of all the form code -->
     {% include 'partials/users_form.html' %}
