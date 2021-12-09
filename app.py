@@ -1,14 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
+
 # uncomment this when running on heroku
-uri = os.environ.get('mongodb://localhost:27017/Charity-Labs', 'MONGODB_URI')
-client = MongoClient(uri)
-#db = client.get_default_database()
+uri = os.environ.get('MONGODB_URI')
+client = MongoClient(host=uri)
+db = client.get_default_database()
 # or
-db = client.get_database('CharityLabs')
+#db = client.get_database('CharityLabs')
 
 #comment this out when running on heroku
 #client = MongoClient()
