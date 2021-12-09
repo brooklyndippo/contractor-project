@@ -20,13 +20,6 @@
     <p>Your annual giving goal: {{ "${:.2f}".format(givegoal) }}</p>
 </div>
 
-<!--  SEE PREVIOUS DONATIONS -->
-<div id='all-donations' class='col-md-6'>
-    {% for donation in donations %}
-        {% include 'partials/donation.html' %}
-    {% endfor %}
-</div>
-
 
 <!-- TO-DO: IMPACT BLOCK -->
 <!-- List of the top areas of impact -->
@@ -37,6 +30,13 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newDonationModal">
     DONATE
   </button>
+</div>
+
+<!--  SEE PREVIOUS DONATIONS -->
+<div id='all-donations' class='col-md-6'>
+  {% for donation in donations %}
+      {% include 'partials/donation.html' %}
+  {% endfor %}
 </div>
 
   <!-- Modal -->

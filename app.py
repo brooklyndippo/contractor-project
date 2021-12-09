@@ -6,12 +6,12 @@ import os
 # uncomment this when running on heroku
 uri = os.environ.get('mongodb://localhost:27017/Charity-Labs', 'MONGODB_URI')
 client = MongoClient(uri)
-db = client.get_default_database()
+#db = client.get_default_database()
 # or
-# db = client.get_database('CharityLabs')
+db = client.get_database('CharityLabs')
 
 #comment this out when running on heroku
-# client = MongoClient()
+#client = MongoClient()
 
 db = client.Donations
 donations = db.donations
@@ -85,8 +85,8 @@ def users_update(user_id):
     updated_user = {
         'firstName': request.form.get('firstName'),
         'lastName': request.form.get('lastName'),
-        'income': request.form.get('income'),
-        'impact': request.form.get('impact')
+        'income': int(request.form.get('income')),
+        'impact': int(request.form.get('impact'))
     }
     # set the former donation to the new one we just updated/edited
     users.update_one(
