@@ -16,8 +16,17 @@
     <h2>Your goal is to donate {{ user.impact }}% of your income to charity.</h2>
     </div>
 
-    <p>Your annual income: ${{ user.income }}</p>
+    {% set givegoal = user.income * (user.impact/100) %}
+    <p>Your annual giving goal: {{ "${:.2f}".format(givegoal) }}</p>
 </div>
+
+<!--  SEE PREVIOUS DONATIONS -->
+<div id='all-donations' class='col-md-6'>
+    {% for donation in donations %}
+        {% include 'partials/donation.html' %}
+    {% endfor %}
+</div>
+
 
 <!-- TO-DO: IMPACT BLOCK -->
 <!-- List of the top areas of impact -->
@@ -51,7 +60,7 @@
 
 
 
-<!-- TO-DO: SEE PREVIOUS DONATIONS (NOT WORKING) -->
+<!--  SEE PREVIOUS DONATIONS -->
 <div id='all-donations'>
     {% for donation in donations %}
         {% include 'partials/donation.html' %}

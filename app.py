@@ -4,14 +4,14 @@ from bson.objectid import ObjectId
 import os
 
 # uncomment this when running on heroku
-# uri = os.environ.get('mongodb://localhost:27017/Charity-Labs', 'MONGODB_URI')
-# client = MongoClient(uri)
-# db = client.get_default_database()
+uri = os.environ.get('mongodb://localhost:27017/Charity-Labs', 'MONGODB_URI')
+client = MongoClient(uri)
+db = client.get_default_database()
 # or
 # db = client.get_database('CharityLabs')
 
 #comment this out when running on heroku
-client = MongoClient()
+# client = MongoClient()
 
 db = client.Donations
 donations = db.donations
@@ -26,12 +26,16 @@ def home():
     return render_template('home.html')
 
 
+
+
 # ADMIN VIEW
 # INDEX - show all of the users
 @app.route('/admin')
 def users_index():
     '''Show all users.'''
     return render_template('users_index.html', users=users.find())
+
+
 
 
 # ======== USER RESOURCE ======== USER RESOURCE ======== USER RESOURCE ======== 
@@ -50,8 +54,8 @@ def users_submit():
     user = {
         'firstName': request.form.get('firstName'),
         'lastName': request.form.get('lastName'),
-        'income': request.form.get('income'),
-        'impact': request.form.get('impact')
+        'income': int(request.form.get('income')),
+        'impact': int(request.form.get('impact')),
     }
     users.insert_one(user)
     return render_template('users_dashboard.html', user=user, title='New User')
