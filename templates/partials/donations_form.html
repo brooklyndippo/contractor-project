@@ -1,25 +1,44 @@
 <!-- templates/partials/donations_form.html -->
-
+<form action='/users/donations' method='POST'>
+<input type='hidden' value='{{ user._id }}' name='user_id'>
 <fieldset>
     <legend>{{ title }}</legend>
     <!-- ORG -->
-    <p>
+    <div class='form-group mb-3'>
         <label for='organization'>Organization</label><br>
-        <input type='text' name='organization' value='{{ donation.organization }}'/>
-    </p>
+        <input type='text' name='organization' class="form-control" placeholder='Charity Name'/>
+    </div>  
+    <!-- CAUSE -->
+    <div class='form-group mb-3'>
+    <label for='cause'>Select a cause:</label>
+    <select name='cause' class="form-control">
+        <option>Animal Welfare</option>
+        <option>Arts & Culture</option>
+        <option>Education</option>
+        <option>Environment</option>
+        <option>Global Health</option>
+        <option>Homelessness</option>
+        <option>Human Rights</option>
+        <option>Medical Research</option>
+        <option>Natural Disasters</option>
+        <option>Wildlife Conservation</option>
+        <option>Youth & Families</option>
+    </select>
+    </div>
     <!-- AMOUNT $ -->
-    <p>
-        <label for='amount_usd'>$</label><br>
-        <input type='number' name='amount_usd' value='{{ donation.amount_usd }}'/>
-    </p>
+    <div class='form-group mb-3'>
+        <label for='amount_usd'>Donation Amount (USD)</label><br>
+        <input type='number' name='amount_usd' class="form-control" placeholder="$50"/>
+    </div>
     <!-- NOTE -->
-    <p>
+    <div class='form-group mb-3'>
         <label for='note'>Donation Note</label><br>
-        <input type='text' name='note' value='{{ donation.note }}'/>
-    </p>
+        <input type='text' name='note' class="form-control"/>
+    </div>
 </fieldset>
 
 <!-- BUTTON -->
 <p>
-    <button type='submit'>Save Donation</button>
+    <button type='submit' class="btn btn-primary mb-2">Save Donation</button>
 </p>
+</form>

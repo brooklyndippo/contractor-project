@@ -1,0 +1,9 @@
+<!-- templates/partials/donation.html -->
+<div class='card mx-4 my-4 p-5'>
+    <h5 class='card-title'>{{ donation.organization }}</h5>
+    <h6 class='card-subtitle text-muted'>{{ donation.cause }}</h6>
+    <h2 class='card-text'>${{ donation.amount_usd }}</h2>
+    <p class='card-text mb-0'>Donation Note:</p>
+    <p class='card-text'>{{ donation.note }}</p>
+    <a class='btn btn-secondary' style='width:30%' data-toggle="modal" data-target="#newDonationModal">Edit</a>
+</div>

@@ -1,0 +1,70 @@
+<!-- templates/users_dashboard.html -->
+{% extends 'base.html' %}
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+
+{% include 'partials/user_navbar.html' %}
+
+<a href='/admin'>Back</a>
+
+<!-- USER WELCOME -->
+<div class='row' id='welcome-block'>
+    <div class= 'col-md-6'>
+    <h1>Hello, {{ user.firstName }}!</h1>
+    <h2>Your goal is to donate {{ user.impact }}% of your income to charity.</h2>
+    </div>
+
+    {% set givegoal = user.income * (user.impact/100) %}
+    <p>Your annual giving goal: {{ "${:.2f}".format(givegoal) }}</p>
+</div>
+
+
+<!-- TO-DO: IMPACT BLOCK -->
+<!-- List of the top areas of impact -->
+
+
+<!-- Button trigger modal -->
+<div id='CTA'>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newDonationModal">
+    DONATE
+  </button>
+</div>
+
+<!--  SEE PREVIOUS DONATIONS -->
+<div id='all-donations' class='col-md-6'>
+  {% for donation in donations %}
+      {% include 'partials/donation.html' %}
+  {% endfor %}
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="newDonationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Make a Donation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div id='donation-form'>
+                {% include 'partials/donations_form.html' %}
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!--  SEE PREVIOUS DONATIONS -->
+<div id='all-donations'>
+    {% for donation in donations %}
+        {% include 'partials/donation.html' %}
+    {% endfor %}
+</div>
+
+{% endblock %}

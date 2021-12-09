@@ -1,0 +1,42 @@
+<!-- templates/partials/users_form.html -->
+
+<fieldset>
+    <legend>{{ title }}</legend>
+    <!-- USER INFO -->
+
+    <div class="form-floating mb-3">
+        <input type='text' name='firstName' class='form-control' id='firstName' value='{{ user.firstName }}'/>
+        <label for='firstName'>First Name</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type='text' name='lastName' class="form-control" id='lastName' value='{{ user.lastName }}'/>
+        <label for='lastName'>Last Name</label>
+      </div>
+    
+    <!-- INCOME -->
+
+    <div class="form-floating mb-3">
+        <input type='number' name='income' class='form-control' id='income' value='{{ user.income }}'/>
+        <label for='income'>Estimated Annual Income ($)</label>
+    </div>
+
+    <!-- IMPACT GOAL  -->
+    <div class='form-floating mb-3'>
+        
+        <select name='impact' value='{{ user.impact }}' class='form-control'>
+            <option value='25'>Oprah Status - 25%</option>
+            <option value='20' selected>Global Giver - 20%</option>
+            <option value='15'>Life Changer - 15%</option>
+            <option value='10'>Community Hero - 10%</option>
+            <option value='5'>Sharing Good Fortune - 5%</option>
+        </select>
+        <label for='impact'>What level of impact do you want to have?</label>
+    </div>
+
+</fieldset>
+
+<!-- BUTTON -->
+<p>
+    <button type='submit' class="btn btn-primary mb-2">Save User Settings</button>
+</p>

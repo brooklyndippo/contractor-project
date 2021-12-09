@@ -1,0 +1,9 @@
+<!-- templates/users_new.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/users'>
+    <!-- Add this line instead of all the form code -->
+    {% include 'partials/users_form.html' %}
+</form>
+{% endblock %}

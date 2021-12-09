@@ -1,0 +1,23 @@
+<!-- templates/partials/navbar.html -->
+
+<nav class='navbar navbar-default'>
+    <div class='container-fluid'>
+        <div class='navbar-header'>
+            <a class='navbar-brand' href='/'>
+                Charity Labs
+            </a>
+        </div>
+
+
+        <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ user.firstName }} {{ user.lastName }} 
+        </a>
+        
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href='/users/{{ user._id }}/edit'>Settings</a>
+            <a class="dropdown-item" href="/">Logout</a>
+        </div>
+        </div>
+    </div>
+</nav>
